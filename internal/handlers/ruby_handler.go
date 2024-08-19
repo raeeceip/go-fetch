@@ -27,7 +27,7 @@ func (h *RubyHandler) Uninstall(metadata core.PackageMetadata) error {
 
 func (h *RubyHandler) List() ([]core.PackageMetadata, error) {
 	cmd := exec.Command("gem", "list", "--local")
-	output, err := cmd.Output()
+	_, err := cmd.Output()
 	if err != nil {
 		return nil, err
 	}

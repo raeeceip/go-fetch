@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 
 	"github.com/Masterminds/semver/v3"
+	"github.com/raeeceip/go-fetch/internal/handlers"
 )
 
 type PackageManager struct {
@@ -37,8 +38,8 @@ func NewPackageManager(version string, configDir string) (*PackageManager, error
 	}
 
 	// Register language handlers
-	pm.handlers["go"] = NewGoHandler()
-	pm.handlers["ruby"] = NewRubyHandler()
+	pm.handlers["go"] = handlers.NewGoHandler()
+	pm.handlers["ruby"] = handlers.NewRubyHandler()
 
 	err = pm.loadPackages()
 	if err != nil {
